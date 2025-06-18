@@ -1,7 +1,13 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "", "event");
-if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
+
+$conn = pg_connect("host=dpg-d19dl7idbo4c73d6vtfg-a port=5432 dbname=event_ti9e user=event_ti9e_user password=7XM1XXCuofkMSpEZbKwTbma589hqh07w");
+
+if (!$conn) {
+    die("Database connection failed.");
+}
+
+
 
 // Services
 $services = [];
